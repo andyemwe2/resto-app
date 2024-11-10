@@ -1,6 +1,6 @@
 import TheRestoDbSource from '../../data/therestodb-source';
 import { createRestoItemTemplate } from '../templates/template-creator';
- 
+
 const RestoList = {
   async render() {
     return `
@@ -12,24 +12,20 @@ const RestoList = {
       </div>
     `;
   },
- 
+
   async afterRender() {
     const restos = await TheRestoDbSource.nowPlayingRestos();
     const restosContainer = document.querySelector('#restos');
     const loadingIndicator = document.querySelector('#loadingIndicator');
 
     try {
-      restos.forEach((resto) => {
-        restosContainer.innerHTML += createRestoItemTemplate(resto);
-      });
-
+      restosContainer.innerHTML = restos.map((resto) => createRestoItemTemplate(resto)).join('');
       loadingIndicator.style.display = 'none';
     } catch (error) {
-      // Tampilkan pesan error dan hilangkan loading indicator
       loadingIndicator.style.display = 'none';
       restosContainer.innerHTML = `<p class="error-message">Gagal memuat data restoran. Silakan coba lagi.</p>`;
     }
   },
 };
- 
+
 export default RestoList;

@@ -1,8 +1,8 @@
 import CONFIG from '../../globals/config';
- 
+
 const createRestoDetailTemplate = (resto) => `
   <h2 class="resto__title">${resto.name}</h2>
-  <img class="resto__poster" src="${CONFIG.BASE_IMG_LARGE + resto.pictureId}" alt="${resto.name}" />
+  <img class="resto__poster" src="${CONFIG.BASE_IMG_LARGE + resto.pictureId}" alt="${resto.name}" width="800" height="450" />
   <div class="resto__info">
     <h3>Information</h3>
     <h4>Description</h4>
@@ -32,12 +32,12 @@ const createRestoDetailTemplate = (resto) => `
     <div class="resto__reviews"></div>
   </div>
 `;
- 
+
 const createRestoItemTemplate = (restaurants) => `
   <div class="resto-item">
     <div class="resto-item__header">
       <img class="resto-item__header__poster lazyload" alt="${restaurants.name}"
-           data-src="${restaurants.pictureId ? CONFIG.BASE_IMG_SMALL + restaurants.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}">
+           data-src="${restaurants.pictureId ? CONFIG.BASE_IMG_SMALL + restaurants.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}" width="400" height="225">
       <div class="resto-item__header__rating">
         <p>⭐️<span class="resto-item__header__rating__score">${restaurants.rating}</span></p>
       </div>
@@ -54,7 +54,7 @@ const createLikeButtonTemplate = () => `
      <i class="fa fa-heart-o" aria-hidden="true"></i>
   </button>
 `;
- 
+
 const createLikedButtonTemplate = () => `
   <button aria-label="unlike this resto" id="likeButton" class="like">
     <i class="fa fa-heart" aria-hidden="true"></i>
@@ -68,5 +68,5 @@ const createReviewTemplate = (review) => `
     <p class="review-date">${review.date}</p>
   </div>
 `;
- 
+
 export { createRestoItemTemplate, createRestoDetailTemplate, createLikeButtonTemplate, createLikedButtonTemplate, createReviewTemplate };

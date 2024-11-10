@@ -1,0 +1,479 @@
+// Global Variables
+$bg-color: #F0E3CA;
+$accent-color: #FF8303;
+$dark-color: #1B1A17;
+$text-color: #A35709;
+$white: #ffffff;
+$box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+// Global Styles
+* {
+  padding: 0;
+  margin: 0;
+}
+ 
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: $bg-color;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+// Skip to content
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: $dark-color;
+  color: $bg-color;
+  padding: 8px;
+  z-index: 1000;
+  text-decoration: none;
+  transition: top 0.3s ease-in-out;
+
+  &:focus {
+    top: 0;
+  }
+}
+
+// AppBar
+.app-bar {
+  padding: 8px 16px;
+  background-color: $bg-color;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  box-shadow: $box-shadow;
+
+  &__menu {
+    display: flex;
+    align-items: center;
+
+    button {
+      background-color: transparent;
+      border: none;
+      font-size: 18px;
+      padding: 8px;
+      cursor: pointer;
+      color: $dark-color;
+      min-width: 44px;
+      min-height: 44px;
+    }
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+
+    img {
+      max-width: 50px;
+      height: auto;
+      margin: 0 10px;
+    }
+
+    h1 {
+      color: $text-color;
+      text-transform: uppercase;
+      font-size: 22px;
+      user-select: none;
+    }
+  }
+
+  &__navigation {
+    position: absolute;
+    top: 50px;
+    left: -180px;
+    width: 150px;
+    transition: all 0.3s;
+    padding: 8px;
+    background-color: $bg-color;
+    overflow: hidden;
+
+    &.open {
+      left: 0;
+    }
+
+    ul {
+      li {
+        a {
+          display: inline-block;
+          text-decoration: none;
+          color: $dark-color;
+          padding: 8px;
+          margin-bottom: 5px;
+          width: 100%;
+          min-width: 44px;
+          min-height: 44px;
+        }
+      }
+    }
+  }
+}
+
+// Main Content
+main {
+  padding: 32px;
+  flex: 1;
+  background-color: $bg-color;
+}
+ 
+.content {
+  margin: 0 auto;
+  min-height: 100%;
+
+  &__heading {
+    font-weight: normal;
+    color: $text-color;
+  }
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $bg-color;
+  text-align: center;
+  overflow: hidden; // Menyembunyikan bagian gambar yang mungkin melampaui kontainer
+
+  .hero__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; // Menempatkan gambar di belakang teks
+  }
+
+  h1 {
+    position: relative;
+    background-color: rgba(27, 26, 23, 0.7);
+    padding: 20px;
+    z-index: 1; // Menempatkan teks di atas gambar
+  }
+}
+
+// Restos
+.restos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 32px 0;
+}
+
+// Resto Item
+.resto-item {
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: $bg-color;
+
+  &__header {
+    position: relative;
+
+    &__poster {
+      width: 100%;
+    }
+
+    &__rating {
+      position: absolute;
+      padding: 8px;
+      bottom: 20px;
+      left: 0;
+      display: inline-block;
+      background-color: $accent-color;
+      color: $dark-color;
+
+      &__score {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  &__content {
+    padding: 16px;
+
+    h3 {
+      margin-bottom: 10px;
+      color: $text-color;
+
+      a {
+        color: $accent-color;
+        text-decoration: none;
+        min-width: 44px;
+        min-height: 44px;
+        display: inline-block;
+        padding: 10px;
+      }
+    }
+
+    p {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      color: $dark-color;
+    }
+  }
+}
+
+// Resto Detail
+.resto {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px 16px;
+
+  &__poster {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  &__info {
+    margin: 20px;
+    padding: 20px;
+    background-color: $bg-color;
+    border-radius: 8px;
+    box-shadow: $box-shadow;
+
+    h3 {
+      font-size: 1.8rem;
+      color: $text-color;
+      margin-bottom: 10px;
+      border-bottom: 2px solid $text-color;
+      padding-bottom: 5px;
+    }
+
+    h4 {
+      font-size: 1.4rem;
+      color: $dark-color;
+      margin-top: 15px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: $dark-color;
+      margin: 5px 0;
+    }
+
+    ul {
+      list-style-type: disc;
+      margin: 10px 0;
+      padding-left: 20px;
+
+      li {
+        font-size: 1rem;
+        color: $dark-color;
+      }
+    }
+  }
+  
+  &__menus {
+    h5 {
+      font-size: 1.2rem;
+      color: $text-color;
+      margin-top: 15px;
+    }
+
+    ul {
+      list-style-type: square;
+      padding-left: 20px;
+
+      li {
+        font-size: 1rem;
+        color: $dark-color;
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  &__reviews {
+    margin-top: 20px;
+
+    > div {
+      background-color: $white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: $box-shadow;
+      margin-bottom: 15px;
+
+      h5 {
+        font-size: 1.1rem;
+        color: $text-color;
+        margin: 0;
+      }
+
+      p {
+        font-size: 0.9rem;
+        color: $dark-color;
+        margin: 5px 0;
+
+        &:last-child {
+          font-size: 0.8rem;
+          color: #aaa;
+          text-align: right;
+        }
+      }
+    }
+  }
+}
+
+// Review Item Styling
+.review-item {
+  background-color: $white;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: $box-shadow;
+  border-left: 4px solid $accent-color;
+
+  h5 {
+    font-size: 1.2rem;
+    color: $text-color;
+    margin: 0;
+  }
+
+  p {
+    font-size: 1rem;
+    color: $dark-color;
+    margin: 5px 0;
+  }
+
+  .review-date {
+    font-size: 0.8rem;
+    color: #aaa;
+    text-align: right;
+  }
+}
+
+// Like
+.like {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $accent-color;
+  
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  border-radius: 50%;
+  border: 0;
+  
+  font-size: 18px;
+  color: $white;
+  cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+// Footer
+footer {
+  padding: 16px;
+  background-color: $dark-color;
+
+  p {
+    text-align: center;
+    color: $bg-color;
+
+    a {
+      color: $accent-color;
+      text-decoration: none;
+      min-width: 44px;
+      min-height: 44px;
+    }
+  }
+}
+
+// Review
+#reviewFormContainer {
+  margin-top: 20px;
+  padding: 16px;
+  background-color: $bg-color;
+  border-radius: 8px;
+  box-shadow: $box-shadow;
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: $text-color;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    input,
+    textarea {
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid $dark-color;
+      border-radius: 4px;
+      font-size: 1rem;
+      color: $dark-color;
+      background-color: $white;
+      min-width: 44px;
+      min-height: 44px;
+    }
+
+    button {
+      padding: 10px;
+      background-color: $accent-color;
+      color: $white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      min-width: 44px;
+      min-height: 44px;
+
+      &:hover {
+        background-color: $dark-color;
+      }
+    }
+  }
+}
+
+// Loading Spinner
+.loading-indicator {
+  border: 4px solid $bg-color;
+  border-top: 4px solid $accent-color;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+  display: block;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Error Message Styling
+.error-message {
+  color: #ff0000;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+// Resto Title
+.resto__title {
+  font-size: 2.5rem;
+  color: $text-color;
+  margin-bottom: 20px;
+  text-align: center;
+}

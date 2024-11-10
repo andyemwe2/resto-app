@@ -1,0 +1,94 @@
+// Variabel global untuk breakpoint
+$breakpoint-small: 650px;
+$breakpoint-medium: 800px;
+$breakpoint-large: 850px;
+$breakpoint-xlarge: 1200px;
+$breakpoint-xxlarge: 1600px;
+
+@media screen and (min-width: $breakpoint-small) {
+  .app-bar {
+    grid-template-columns: 1fr auto;
+    padding: 8px 32px;
+
+    &__brand {
+      h1 {
+        font-size: 1.5em;
+      }
+    }
+
+    &__menu {
+      display: none;
+    }
+
+    &__navigation {
+      position: static;
+      width: 100%;
+
+      ul {
+        li {
+          display: inline-block;
+
+          a {
+            display: inline-block;
+            width: 120px;
+            text-align: center;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .restos {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .resto {
+    grid-template-columns: auto 1fr;
+
+    &__title {
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+
+    &__overview {
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-medium) {
+  .app-bar {
+    &__brand {
+      h1 {
+        font-size: 2em;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-large) {
+  .restos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: $breakpoint-xlarge) {
+  .restos {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .hero {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    background-size: contain;
+  }
+}
+
+@media screen and (min-width: $breakpoint-xxlarge) {
+  .restos {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

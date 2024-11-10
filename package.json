@@ -13,7 +13,7 @@
     "lint:fix": "eslint --fix ./src",
     "build-image": "node sharp.js",
     "e2e": "codeceptjs run --steps",
-    "build-vercel": "npm run build && npm run build-image && npm run serve"
+    "build-vercel": "npm run build && npm run build-image"
   },
   "keywords": [],
   "author": "Rafif Ahmad <rafifahmad80@gmail.com>",

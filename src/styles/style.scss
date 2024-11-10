@@ -181,10 +181,16 @@ main {
 
     &__poster {
       width: 100%;
-    }
-
-    img {
-      max-width: 500px;
+      position: relative;
+    
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
 
     &__rating {
